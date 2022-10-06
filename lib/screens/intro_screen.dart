@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:time_to_run/shared/menu_drawer.dart';
+import 'package:time_to_run/screens/user.dart';
 
 import '../shared/menu_bottom.dart';
 
 class IntroScreen extends StatelessWidget {
-  const IntroScreen({super.key});
+  const IntroScreen({super.key, required this.user});
+
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class IntroScreen extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 color: Colors.white70),
-            child: Text('Let\'s run',
+            child: Text(user.email,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 22,

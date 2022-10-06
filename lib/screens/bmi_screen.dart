@@ -5,9 +5,12 @@ import 'package:matcher/matcher.dart';
 import 'package:time_to_run/shared/menu_bottom.dart';
 
 import '../shared/menu_drawer.dart';
+import 'package:time_to_run/screens/user.dart';
 
 class BmiScreen extends StatefulWidget {
-  const BmiScreen({super.key});
+  const BmiScreen({super.key, required this.user});
+
+  final User user;
 
   @override
   State<BmiScreen> createState() => _BmiScreenState();
@@ -41,7 +44,7 @@ class _BmiScreenState extends State<BmiScreen> {
     return Scaffold(
       appBar: AppBar(title: Text('BMI calculator')),
       bottomNavigationBar: MenuBottom(),
-      drawer: MenuDrawer(),
+      //drawer: MenuDrawer(user: user),
       body: SingleChildScrollView(
         child: Column(children: [
           ToggleButtons(

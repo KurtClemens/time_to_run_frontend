@@ -3,9 +3,12 @@ import 'package:time_to_run/screens/addRun_screen.dart';
 //import 'package:time_to_run/screens/weather_screen.dart';
 import '../screens/bmi_screen.dart';
 import '../screens/intro_screen.dart';
+import 'package:time_to_run/screens/user.dart';
 
 class MenuDrawer extends StatelessWidget {
-  const MenuDrawer({super.key});
+  const MenuDrawer({super.key, required this.user});
+
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +41,10 @@ class MenuDrawer extends StatelessWidget {
           onTap: () {
             switch (element) {
               case 'Home':
-                screen = IntroScreen();
+                screen = IntroScreen(user: user);
                 break;
               case 'BMI Calculator':
-                screen = BmiScreen();
+                screen = BmiScreen(user: user);
                 break;
               // case 'Weather':
               //   screen = WeatherScreen();

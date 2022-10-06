@@ -22,7 +22,7 @@ class TimeToRunApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blueGrey),
       routes: {
         '/': (context) => LoginScreen(),
-        '/bmi': (context) => BmiScreen(),
+        //'/bmi': (context) => BmiScreen(),
         '/addRun': (context) => AddRunScreen(),
       },
       initialRoute: '/',

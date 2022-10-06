@@ -17,19 +17,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  // Future save() async {
-  //   var result = await http.post(Uri.parse("http://localhost:8080/singin"),
-  //       headers: <String, String>{
-  //         'Context-Type': 'application/json;charSet=UTF-8'
-  //       },
-  //       body: <String, String>{
-  //         'email': user.email,
-  //         'password': user.password
-  //       });
-  //   print(result.body);
-  //   Navigator.push(
-  //       context, new MaterialPageRoute(builder: (context) => IntroScreen()));
-  //}
 
   User user = User('', '');
   var email, password, token;
@@ -174,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             context,
                                             new MaterialPageRoute(
                                                 builder: (context) =>
-                                                    IntroScreen()));
+                                                    IntroScreen(user: user)));
                                       }
                                     });
                                   } else {
