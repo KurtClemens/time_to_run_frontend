@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>372887301246-pm0ci68lpuemmlipon69eefsj7pu91vo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.372887301246-pm0ci68lpuemmlipon69eefsj7pu91vo</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>372887301246-glu72embrd704lpo7u8cbqp739dg2q7a.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDJAFXi2bexh1--XzWYDAcqEXZqI-GquIQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>372887301246</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.timeToRun</string>
+	<key>PROJECT_ID</key>
+	<string>timetorun-d3ece</string>
+	<key>STORAGE_BUCKET</key>
+	<string>timetorun-d3ece.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:372887301246:ios:4b33a1572224c0c5f3bc2f</string>
+	<key>DATABASE_URL</key>
+	<string>https://timetorun-d3ece-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

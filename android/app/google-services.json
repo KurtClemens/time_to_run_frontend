@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "372887301246",
+    "firebase_url": "https://timetorun-d3ece-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "timetorun-d3ece",
+    "storage_bucket": "timetorun-d3ece.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372887301246:android:d6be08f9fc71110df3bc2f",
+        "android_client_info": {
+          "package_name": "com.example.time_to_run"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372887301246-p99clqb708t3v04n92acitfcovv4rc2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOhzepfFcYDK9l0T6T6vRVkF48659uSP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372887301246-p99clqb708t3v04n92acitfcovv4rc2r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "372887301246-pm0ci68lpuemmlipon69eefsj7pu91vo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.timeToRun"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
