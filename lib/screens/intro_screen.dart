@@ -5,9 +5,7 @@ import 'package:time_to_run/screens/user.dart';
 import '../shared/menu_bottom.dart';
 
 class IntroScreen extends StatelessWidget {
-  const IntroScreen({super.key, required this.user});
-
-  final User user;
+  const IntroScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +25,7 @@ class IntroScreen extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 color: Colors.white70),
-            child: Text(user.email,
+            child: Text('Run miles, drink wine!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 22,

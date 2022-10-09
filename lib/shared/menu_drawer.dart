@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:time_to_run/screens/addRun_screen.dart';
-//import 'package:time_to_run/screens/weather_screen.dart';
-import '../screens/bmi_screen.dart';
+import 'package:time_to_run/screens/login_screen.dart';
+import 'package:time_to_run/screens/setting_screen.dart';
+import 'package:time_to_run/screens/weather_screen.dart';
+import '../screens/overview_screen.dart';
 import '../screens/intro_screen.dart';
-import 'package:time_to_run/screens/user.dart';
 
 class MenuDrawer extends StatelessWidget {
-  const MenuDrawer({super.key, required this.user});
-
-  final User user;
+  const MenuDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +21,10 @@ class MenuDrawer extends StatelessWidget {
   List<Widget> buildMenuItems(BuildContext context) {
     final List<String> menuTitles = [
       'Home',
-      'BMI Calculator',
-      'Weather',
-      'Training',
-      'Add run'
+      'Overview',
+      'Add run',
+      'Settings',
+      'Log out'
     ];
 
     List<Widget> menuItems = [];
@@ -41,16 +40,19 @@ class MenuDrawer extends StatelessWidget {
           onTap: () {
             switch (element) {
               case 'Home':
-                screen = IntroScreen(user: user);
+                screen = IntroScreen();
                 break;
-              case 'BMI Calculator':
-                screen = BmiScreen(user: user);
+              case 'Overview':
+                screen = OverviewScreen();
                 break;
-              // case 'Weather':
-              //   screen = WeatherScreen();
-              //   break;
               case 'Add run':
                 screen = AddRunScreen();
+                break;
+              case 'Settings':
+                screen = SettingScreen();
+                break;
+              case 'Log out':
+                screen = LoginScreen();
                 break;
             }
             Navigator.of(context).pop();

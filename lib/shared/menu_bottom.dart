@@ -11,16 +11,16 @@ class MenuBottom extends StatelessWidget {
       onTap: (int index) {
         switch (index) {
           case 0:
-            Navigator.pushNamed(context, '/');
+            Navigator.pushNamed(context, '/intro');
             break;
           case 1:
-            Navigator.pushNamed(context, '/bmi');
+            Navigator.pushNamed(context, '/overview');
             break;
         }
       },
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.monitor_weight), label: 'BMI'),
+        BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Overview'),
       ],
     );
   }
