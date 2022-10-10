@@ -7,6 +7,7 @@ import 'package:time_to_run/services/authservice.dart';
 // import 'package:time_to_run/services/dbservices.dart';
 import 'package:time_to_run/shared/menu_bottom.dart';
 import 'package:time_to_run/shared/menu_drawer.dart';
+import 'package:time_to_run/shared/strings.dart';
 
 class OverviewScreen extends StatefulWidget {
   const OverviewScreen({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Overview'),
+        title: Text(Strings.overview),
       ),
       drawer: MenuDrawer(),
       bottomNavigationBar: MenuBottom(),
@@ -48,7 +49,7 @@ class _OverviewScreenState extends State<OverviewScreen> {
                       });
                 } else {
                   return Center(
-                    child: Text("no data available"),
+                    child: Text(Strings.noData),
                   );
                 }
               }

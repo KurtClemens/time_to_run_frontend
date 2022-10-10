@@ -3,8 +3,9 @@ import 'package:intl/intl.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongodart;
 import 'package:time_to_run/mongodb/mongodb.dart';
 import 'package:time_to_run/screens/overview_screen.dart';
-import 'package:time_to_run/screens/run.dart';
+import 'package:time_to_run/shared/run.dart';
 import 'package:time_to_run/services/authservice.dart';
+import 'package:time_to_run/shared/strings.dart';
 // import 'package:time_to_run/services/dbservices.dart';
 
 
@@ -29,7 +30,7 @@ class _AddRunState extends State<AddRunScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Add a run!'), actions: [
+        appBar: AppBar(title: Text(Strings.addRun), actions: [
           //       Padding(
           // padding: EdgeInsets.fromLTRB(275, 145, 16, 0),
           // child: Container(
@@ -57,7 +58,7 @@ class _AddRunState extends State<AddRunScreen> {
                 Icons.add,
                 size: 24,
               ),
-              label: Text('Add')),
+              label: Text(Strings.add)),
         ]),
         body: Container(
             decoration: BoxDecoration(
@@ -81,13 +82,13 @@ class _AddRunState extends State<AddRunScreen> {
                         },
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Enter the name of the run';
+                            return Strings.enterNameOfRun;
                           } else {
                             return null;
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'Enter the name',
+                          hintText: Strings.enterRun,
                           filled: true,
                           fillColor: Colors.white38,
                           border: OutlineInputBorder(
@@ -105,13 +106,13 @@ class _AddRunState extends State<AddRunScreen> {
                         },
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Enter the distance of the run';
+                            return Strings.enterDistanceRun;
                           } else {
                             return null;
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'Enter the distance',
+                          hintText: Strings.enterDistance,
                           filled: true,
                           fillColor: Colors.white38,
                           border: OutlineInputBorder(
@@ -129,13 +130,13 @@ class _AddRunState extends State<AddRunScreen> {
                         },
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Enter the location of the run';
+                            return Strings.enterLocationRun;
                           } else {
                             return null;
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'Enter the location',
+                          hintText: Strings.enterLocation,
                           filled: true,
                           fillColor: Colors.white38,
                           border: OutlineInputBorder(
@@ -153,13 +154,13 @@ class _AddRunState extends State<AddRunScreen> {
                         },
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Enter the date of the run';
+                            return Strings.enterDateRun;
                           } else {
                             return null;
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'Enter the date in format 2000-12-31',
+                          hintText: Strings.enterDateInFormat,
                           filled: true,
                           fillColor: Colors.white38,
                           border: OutlineInputBorder(

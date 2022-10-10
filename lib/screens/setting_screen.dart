@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_to_run/shared/strings.dart';
 import 'package:time_to_run/widget/change_theme_button.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _SettingScreen extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-      title: Text('Dark mode'),
+      title: Text(Strings.darkMode),
       actions: [
         ChangeThemeButtonWidget(),
       ],

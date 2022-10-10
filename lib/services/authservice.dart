@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:time_to_run/data/http_helper.dart';
 import 'package:http/http.dart' as http;
-import 'package:time_to_run/screens/run.dart';
+import 'package:time_to_run/shared/run.dart';
 
 class AuthService {
   Dio dio = new Dio();
@@ -65,7 +65,6 @@ class AuthService {
     List<Run> runList = [];
     var url = Uri.parse('https://time-to-run.onrender.com/getruns');
     var response = await http.get(url);
-    print('response body: ${response.body}');
     var jsonList = jsonDecode(response.body);
     return jsonList;
   }

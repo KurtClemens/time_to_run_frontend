@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:time_to_run/shared/menu_drawer.dart';
-import 'package:time_to_run/screens/user.dart';
+import 'package:time_to_run/shared/strings.dart';
+import 'package:time_to_run/shared/user.dart';
 
 import '../shared/menu_bottom.dart';
 
@@ -10,7 +11,7 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Time To Run')),
+        appBar: AppBar(title: Text(Strings.timeToRun)),
         drawer: MenuDrawer(),
         bottomNavigationBar: MenuBottom(),
         body: Container(
@@ -25,7 +26,7 @@ class IntroScreen extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 color: Colors.white70),
-            child: Text('Run miles, drink wine!',
+            child: Text(Strings.runMilesDringWine,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 22,

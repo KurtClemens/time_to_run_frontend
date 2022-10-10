@@ -3,7 +3,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:time_to_run/screens/intro_screen.dart';
 import 'package:time_to_run/screens/register_screen.dart';
-import 'package:time_to_run/screens/user.dart';
+import 'package:time_to_run/shared/strings.dart';
+import 'package:time_to_run/shared/user.dart';
 // import 'package:time_to_run/services/dbservices.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:http/http.dart' as http;
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 150,
                         ),
-                        Text('Sign In',
+                        Text(Strings.signIn,
                             style: GoogleFonts.pacifico(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 50,
@@ -59,19 +60,19 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Enter something';
+                                return Strings.enterEmail;
                               } else if (RegExp(
                                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                   .hasMatch(value)) {
                                 return null;
                               } else {
-                                return 'Enter valid email';
+                                return Strings.enterValidEmail;
                               }
                             },
                             decoration: InputDecoration(
                                 filled: true,
                                 fillColor: Colors.white38,
-                                hintText: 'Enter email',
+                                hintText: Strings.enterEmail,
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(16),
                                     borderSide:
@@ -98,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Enter something';
+                                return Strings.enterPassword;
                               } else {
                                 return null;
                               }
@@ -106,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: InputDecoration(
                                 filled: true,
                                 fillColor: Colors.white38,
-                                hintText: 'Enter password',
+                                hintText: Strings.enterPassword,
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(16),
                                     borderSide:
@@ -141,14 +142,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 color: Colors.blueGrey)))),
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
-                                    print('ok');
                                     AuthService()
                                         .login(user.email, user.password)
                                         .then((val) {
                                       if (val != null && val.data['success']) {
                                         token = val.data['token'];
                                         Fluttertoast.showToast(
-                                            msg: 'Welcome, let\'s run!',
+                                            msg: Strings.welcome,
                                             toastLength: Toast.LENGTH_LONG,
                                             gravity: ToastGravity.BOTTOM,
                                             backgroundColor: Colors.green,
@@ -162,11 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     IntroScreen()));
                                       }
                                     });
-                                  } else {
-                                    print('not ok');
-                                  }
+                                  } 
                                 },
-                                child: Text('Sign in',
+                                child: Text(Strings.signIn,
                                     style: TextStyle(
                                         color: Colors.blueGrey, fontSize: 24)),
                               )),
@@ -176,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Row(
                             children: [
                               Text(
-                                'Don\'t have an account? ',
+                                Strings.noAccount,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
@@ -190,7 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 RegisterScreen()));
                                   },
                                   child: Text(
-                                    'Register here!',
+                                    Strings.register,
                                     style: TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.bold),
