@@ -92,6 +92,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: TextFormField(
+                            obscureText: true,
+                            enableSuggestions: false,
+                            autocorrect: false,
                             controller:
                                 TextEditingController(text: user.password),
                             onChanged: (value) {
@@ -162,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     IntroScreen()));
                                       }
                                     });
-                                  } 
+                                  }
                                 },
                                 child: Text(Strings.signIn,
                                     style: TextStyle(

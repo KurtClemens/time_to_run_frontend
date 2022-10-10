@@ -93,6 +93,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: TextFormField(
+                            obscureText: true,
+                            enableSuggestions: false,
+                            autocorrect: false,
                             controller:
                                 TextEditingController(text: user.password),
                             onChanged: (value) {
@@ -150,7 +153,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           user.email != "" &&
                                           user.password != "") {
                                         Fluttertoast.showToast(
-                                            msg: user.email + Strings.successRegistered,
+                                            msg: user.email +
+                                                Strings.successRegistered,
                                             toastLength: Toast.LENGTH_LONG,
                                             gravity: ToastGravity.BOTTOM,
                                             backgroundColor: Colors.green,
@@ -164,7 +168,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                     LoginScreen()));
                                       }
                                     });
-                                  } 
+                                  }
                                 },
                                 child: Text(Strings.register,
                                     style: TextStyle(
