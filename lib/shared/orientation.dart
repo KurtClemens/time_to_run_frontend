@@ -1,0 +1,6 @@
+
+
+enum Orientation{
+  portrait,
+  landscape
+}

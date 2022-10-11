@@ -10,7 +10,7 @@ import 'package:time_to_run/data/http_helper.dart';
 import 'package:http/http.dart' as http;
 import 'package:time_to_run/shared/run.dart';
 
-class AuthService {
+class Service {
   Dio dio = new Dio();
 
   login(email, password) async {
@@ -53,22 +53,6 @@ class AuthService {
     }
   }
 
-  //  static Future<List<Map<String, dynamic>>> getAllRuns() async {
-  //   var db = await Db.create(MONGO_URL);
-  //   await db.open();
-  //   final runCollection = await db.collection(COLLECTION_NAME_RUNS);
-  //   print(await runCollection.find().toList());
-  //   return runCollection.find().toList();
-  // }
-
-  static getAllRuns() async {
-    List<Run> runList = [];
-    var url = Uri.parse('https://time-to-run.onrender.com/getruns');
-    var response = await http.get(url);
-    var jsonList = jsonDecode(response.body);
-    return jsonList;
-  }
-
   addUser(email, password) async {
     try {
       return await dio.post('https://time-to-run.onrender.com/adduser',
@@ -91,5 +75,30 @@ class AuthService {
   getinfo(token) async {
     dio.options.headers['Authorization'] = 'Bearer $token';
     return await dio.get('https://time-to-run.onrender.com/getinfo');
+  }
+}
+
+getAllRuns2() async {
+  var db = await Db.create(MONGO_URL);
+  await db.open();
+  final runCollection = await db.collection(COLLECTION_NAME_RUNS);
+  //print(await runCollection.find().toList());
+  return runCollection.find();
+}
+
+getAllRuns() async {
+  try {
+    var url = Uri.parse('https://time-to-run.onrender.com/getruns');
+    var response = await http.get(url);
+    var runs = [];
+
+    var runsJson = jsonDecode(response.body);
+    for (var runJson in runsJson) {
+      runs.addAll((runsJson as List).map((e) => Run.fromJson(e)).toList());
+    }
+    return runs;
+  } catch (e) {
+    print(e);
+    rethrow;
   }
 }

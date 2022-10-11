@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:time_to_run/provider/theme_provider.dart';
 import 'package:time_to_run/screens/addRun_screen.dart';
 import 'package:time_to_run/screens/intro_screen.dart';
+import 'package:time_to_run/screens/item_listing.dart';
+import 'package:time_to_run/screens/master_detail_container.dart';
 import 'package:time_to_run/screens/overview_screen.dart';
 import 'package:time_to_run/screens/login_screen.dart';
 
@@ -30,13 +32,14 @@ class TimeToRunApp extends StatelessWidget {
             darkTheme: MyThemes.darkTheme,
             routes: {
               '/': (context) => LoginScreen(),
-              '/overview': (context) => OverviewScreen(),
+              '/overview': (context) => MasterDetailContainer(),
               '/intro': (context) => IntroScreen(),
               '/addRun': (context) => AddRunScreen(),
             },
-            initialRoute: '/',
+            initialRoute: '/intro',
+
+            // home: MasterDetailContainer(),
           );
-          // home: IntroScreen());
         });
   }
 }

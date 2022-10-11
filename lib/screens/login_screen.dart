@@ -8,7 +8,7 @@ import 'package:time_to_run/shared/user.dart';
 // import 'package:time_to_run/services/dbservices.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:http/http.dart' as http;
-import 'package:time_to_run/services/authservice.dart';
+import 'package:time_to_run/services/service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 color: Colors.blueGrey)))),
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
-                                    AuthService()
+                                    Service()
                                         .login(user.email, user.password)
                                         .then((val) {
                                       if (val != null && val.data['success']) {

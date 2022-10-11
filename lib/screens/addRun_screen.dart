@@ -4,10 +4,9 @@ import 'package:mongo_dart/mongo_dart.dart' as mongodart;
 import 'package:time_to_run/mongodb/mongodb.dart';
 import 'package:time_to_run/screens/overview_screen.dart';
 import 'package:time_to_run/shared/run.dart';
-import 'package:time_to_run/services/authservice.dart';
+import 'package:time_to_run/services/service.dart';
 import 'package:time_to_run/shared/strings.dart';
 // import 'package:time_to_run/services/dbservices.dart';
-
 
 class AddRunScreen extends StatefulWidget {
   const AddRunScreen({super.key});
@@ -25,7 +24,7 @@ class _AddRunState extends State<AddRunScreen> {
   final TextEditingController txtDate = TextEditingController();
   final DateFormat dateFormat = DateFormat("yyyy-MM-dd");
 
-  Run run = Run("", "", "", "");
+  Run run = Run(name: '', distance: '', location: '', date: '');
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,7 @@ class _AddRunState extends State<AddRunScreen> {
                   String distance = run.distance;
                   String location = run.location;
                   String date = run.date;
-                  AuthService().addRun(name, distance, location, date);
+                  Service().addRun(name, distance, location, date);
                   Navigator.push(
                       context,
                       new MaterialPageRoute(

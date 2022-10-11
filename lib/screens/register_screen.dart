@@ -7,7 +7,7 @@ import 'package:time_to_run/screens/login_screen.dart';
 import 'package:time_to_run/shared/strings.dart';
 import 'package:time_to_run/shared/user.dart';
 import 'package:http/http.dart' as http;
-import 'package:time_to_run/services/authservice.dart';
+import 'package:time_to_run/services/service.dart';
 //import 'package:time_to_run/services/dbservices.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -146,7 +146,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 color: Colors.blueGrey)))),
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
-                                    AuthService()
+                                    Service()
                                         .addUser(user.email, user.password)
                                         .then((val) {
                                       if (val != null &&

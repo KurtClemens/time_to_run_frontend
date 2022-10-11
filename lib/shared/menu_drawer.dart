@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:time_to_run/screens/addRun_screen.dart';
 import 'package:time_to_run/screens/login_screen.dart';
+import 'package:time_to_run/screens/master_detail_container.dart';
 import 'package:time_to_run/screens/setting_screen.dart';
 import 'package:time_to_run/screens/weather_screen.dart';
 import '../screens/overview_screen.dart';
@@ -43,7 +44,7 @@ class MenuDrawer extends StatelessWidget {
                 screen = IntroScreen();
                 break;
               case 'Overview':
-                screen = OverviewScreen();
+                screen = MasterDetailContainer();
                 break;
               case 'Add run':
                 screen = AddRunScreen();
