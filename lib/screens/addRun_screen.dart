@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongodart;
-import 'package:time_to_run/mongodb/mongodb.dart';
-import 'package:time_to_run/screens/overview_screen.dart';
+import 'package:time_to_run/screens/master_detail_container.dart';
 import 'package:time_to_run/shared/run.dart';
 import 'package:time_to_run/services/service.dart';
 import 'package:time_to_run/shared/strings.dart';
@@ -30,16 +29,7 @@ class _AddRunState extends State<AddRunScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text(Strings.addRun), actions: [
-          //       Padding(
-          // padding: EdgeInsets.fromLTRB(275, 145, 16, 0),
-          // child: Container(
-          //   height: 45,
           ElevatedButton.icon(
-              // style: ButtonStyle(
-              //   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              //       RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(18))),
-              // ),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   String name = run.name;
@@ -50,7 +40,7 @@ class _AddRunState extends State<AddRunScreen> {
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
-                          builder: (context) => OverviewScreen()));
+                          builder: (context) => MasterDetailContainer()));
                 }
               },
               icon: Icon(
@@ -174,22 +164,3 @@ class _AddRunState extends State<AddRunScreen> {
             ]))));
   }
 }
-
-//   Future createRun({required String name}) async {
-//     final run = Run(id: mongodart.ObjectId(), name: name);
-//     final json = {
-//       'name': name,
-//       'distance': 10,
-//       'location': 'Tongeren',
-//       'date': new DateTime(2022, 10, 9) 
-//     };
-//     MongoDatabase.addRun(json);
-//   }
-// }
-
-// class Run {
-//   final mongodart.ObjectId? id;
-//   final String? name;
-
-//   const Run({this.id, this.name});
-// }

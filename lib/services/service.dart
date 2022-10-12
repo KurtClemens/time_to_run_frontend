@@ -1,14 +1,12 @@
 import 'dart:convert';
 
 import 'package:mongo_dart/mongo_dart.dart';
-import 'package:time_to_run/mongodb/constant.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:time_to_run/data/http_helper.dart';
 import 'package:http/http.dart' as http;
 import 'package:time_to_run/shared/run.dart';
+import 'package:time_to_run/shared/constant.dart';
 
 class Service {
   Dio dio = new Dio();
@@ -96,9 +94,16 @@ getAllRuns() async {
     for (var runJson in runsJson) {
       runs.addAll((runsJson as List).map((e) => Run.fromJson(e)).toList());
     }
-    return runs;
+    return runsJson;
   } catch (e) {
     print(e);
     rethrow;
   }
+}
+
+getAllRuns3() async {
+  var url = Uri.parse('https://time-to-run.onrender.com/getruns');
+  var response = await http.get(url);
+  var jsonList = jsonDecode(response.body);
+  return jsonList;
 }

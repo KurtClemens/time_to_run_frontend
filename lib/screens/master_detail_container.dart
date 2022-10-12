@@ -1,8 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:time_to_run/screens/item_details.dart';
-import 'package:time_to_run/screens/item_listing.dart';
+import 'package:flutter/rendering.dart';
+import 'package:time_to_run/widget/item_details.dart';
+import 'package:time_to_run/widget/item_listing.dart';
 import 'package:time_to_run/shared/run.dart';
 
 class MasterDetailContainer extends StatefulWidget {
@@ -12,12 +13,10 @@ class MasterDetailContainer extends StatefulWidget {
 }
 
 class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
-  static const int kTabletBreakpoint = 600;
-
   late Run _selectedItem =
       new Run(date: '', location: '', distance: '', name: '');
 
-  Widget _buildMobileLayout() {
+  Widget _buildPortraitLayout() {
     return new ItemListing(
         itemSelectedCallback: (item) {
           Navigator.push(
@@ -35,32 +34,36 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
         selectedItem: _selectedItem);
   }
 
-  Widget _buildTabletLayout() {
-    return new Row(
-      children: <Widget>[
-        new Flexible(
-          flex: 1,
-          child: new Material(
-            elevation: 4.0,
-            child: new ItemListing(
-              itemSelectedCallback: (item) {
-                setState(() {
-                  _selectedItem = item;
-                });
-              },
-              selectedItem: _selectedItem,
+  Widget _buildLandscapeLayout() {
+    return Row(children: <Widget>[
+      new Flexible(
+        flex: 1,
+        child: new Material(
+          elevation: 4.0,
+          child: new ItemListing(
+            itemSelectedCallback: (item) {
+              setState(() {
+                _selectedItem = item;
+              });
+            },
+            selectedItem: _selectedItem,
+          ),
+        ),
+      ),
+      new Flexible(
+        flex: 3,
+        child: Container(
+          child: Center(
+            child: SingleChildScrollView(
+              child: new ItemDetails(
+                isInTabletLayout: true,
+                item: _selectedItem,
+              ),
             ),
           ),
         ),
-        new Flexible(
-          flex: 3,
-          child: new ItemDetails(
-            isInTabletLayout: true,
-            item: _selectedItem,
-          ),
-        ),
-      ],
-    );
+      )
+    ]);
   }
 
   @override
@@ -71,16 +74,11 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
       ),
       body: new LayoutBuilder(
         builder: (context, constraints) {
-          final double smallestDimension = min(
-            constraints.maxWidth,
-            constraints.maxHeight,
-          );
-
-          if (smallestDimension < kTabletBreakpoint) {
-            return _buildMobileLayout();
+          Orientation orientation = MediaQuery.of(context).orientation;
+          if (orientation == Orientation.portrait) {
+            return _buildPortraitLayout();
           }
-
-          return _buildTabletLayout();
+          return _buildLandscapeLayout();
         },
       ),
     );
