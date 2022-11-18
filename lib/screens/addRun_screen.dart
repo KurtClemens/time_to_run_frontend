@@ -23,7 +23,7 @@ class _AddRunState extends State<AddRunScreen> {
   final TextEditingController txtDate = TextEditingController();
   final DateFormat dateFormat = DateFormat("yyyy-MM-dd");
 
-  Run run = Run(name: '', distance: '', location: '', date: '');
+  Run run = Run(name: '', distance: '', location: '', date: '', img: '');
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,8 @@ class _AddRunState extends State<AddRunScreen> {
                   String distance = run.distance;
                   String location = run.location;
                   String date = run.date;
-                  Service().addRun(name, distance, location, date);
+                  String img = "";
+                  Service().addRun(name, distance, location, date, img);
                   Navigator.push(
                       context,
                       new MaterialPageRoute(

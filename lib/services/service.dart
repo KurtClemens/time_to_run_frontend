@@ -30,14 +30,34 @@ class Service {
     }
   }
 
-  addRun(name, distance, location, date) async {
+  // addImage(name, img) async{
+  //   try {
+  //     return await dio.patch('https://time-to-run.onrender.com/addimage',
+  //         data: {
+  //           'name': name,
+  //           'img': img,
+  //         },
+  //         options: Options(contentType: Headers.formUrlEncodedContentType));
+  //   } on DioError catch (e) {
+  //     Fluttertoast.showToast(
+  //         msg: e.response!.data['msg'],
+  //         toastLength: Toast.LENGTH_SHORT,
+  //         gravity: ToastGravity.BOTTOM,
+  //         backgroundColor: Colors.red,
+  //         textColor: Colors.white,
+  //         fontSize: 16);
+  //   }
+  // }
+
+  addRun(name, distance, location, date, img) async {
     try {
       return await dio.post('https://time-to-run.onrender.com/addrun',
           data: {
             'name': name,
             'distance': distance,
             'location': location,
-            'date': date
+            'date': date,
+            'img': img,
           },
           options: Options(contentType: Headers.formUrlEncodedContentType));
     } on DioError catch (e) {
