@@ -14,7 +14,7 @@ class MenuBottom extends StatelessWidget {
             Navigator.pushNamed(context, '/intro');
             break;
           case 1:
-            Navigator.pushNamed(context, '/intro');
+            Navigator.pushNamed(context, '/overview');
             break;
         }
       },
