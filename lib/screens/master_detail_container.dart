@@ -14,7 +14,7 @@ class MasterDetailContainer extends StatefulWidget {
 
 class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
   late Run _selectedItem =
-      new Run(date: '', location: '', distance: '', name: '');
+      new Run(date: '', location: '', distance: '', name: '', img: '');
 
   Widget _buildPortraitLayout() {
     return new ItemListing(
